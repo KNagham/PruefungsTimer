@@ -22,3 +22,18 @@ var x = setInterval(function () {
 
 }, 1000);
 
+const paths = document.querySelectorAll(".path-1, .path-2");
+const groups = document.querySelectorAll(".group");
+
+paths.forEach((path, index) => {
+    const length = Math.ceil(path.getTotalLength())
+    path.style.setProperty("--length", length)
+    path.style.setProperty("--double-length", length * 2)
+    path.style.setProperty("--negative-length", length * -2)
+})
+
+groups.forEach((group, index) => {
+    // const length = Math.ceil(group.getTotalLength())
+    const percentage = Math.round(Math.random() * 14) - 7
+    group.style.setProperty("--displace", `${(index + 1) * percentage}%`)
+})
