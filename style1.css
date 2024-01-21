@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.hero {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #08001f, #30197d);
+    color: #fff;
+    position: relative;
+
+}
+
+.number {
+    width: 25vmin;
+    height: 25vmin;
+    -webkit-animation: number 5s infinite 0.65s;
+    animation: number 5s infinite 0.65s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* oder eine andere Höhe, je nachdem, was Sie erreichen möchten */
+}
+
+.group {
+    -webkit-animation: group 5s infinite 0.65s;
+    animation: group 5s infinite 0.65s;
+}
+
+.group .path {
+    stroke-dasharray: var(--length) var(--double-length);
+    stroke-dashoffset: var(--double-length);
+    -webkit-animation: path 5s infinite calc(var(--group) * .2s) linear;
+    animation: path 5s infinite calc(var(--group) * .2s) linear;
+}
+
+.group .path-2 {
+    -webkit-animation: path 5s infinite calc(calc(var(--group) * .2s) + 0.65s) linear;
+    animation: path 5s infinite calc(calc(var(--group) * .2s) + 0.65s) linear;
+}
+
+@-webkit-keyframes path {
+
+    25%,
+    50% {
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        stroke-dashoffset: var(--negative-length);
+    }
+}
+
+@keyframes path {
+
+    25%,
+    50% {
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        stroke-dashoffset: var(--negative-length);
+    }
+}
+
+@-webkit-keyframes number {
+
+    0%,
+    60% {
+        filter: blur(0);
+    }
+
+    100% {
+        filter: blur(30px);
+    }
+}
+
+@keyframes number {
+
+    0%,
+    60% {
+        filter: blur(0);
+    }
+
+    100% {
+        filter: blur(30px);
+    }
+}
+
+@-webkit-keyframes group {
+    0% {
+        transform: translateX(var(--displace)) translateY(calc(var(--displace)));
+    }
+
+    10% {
+        transform: translateX(calc(var(--displace) * -1)) translateY(calc(var(--displace)));
+    }
+
+    50% {
+        transform: translateX(0) translateY(0);
+    }
+}
+
+@keyframes group {
+    0% {
+        transform: translateX(var(--displace)) translateY(calc(var(--displace)));
+    }
+
+    10% {
+        transform: translateX(calc(var(--displace) * -1)) translateY(calc(var(--displace)));
+    }
+
+    50% {
+        transform: translateX(0) translateY(0);
+    }
+}
+
+.path {
+    fill: none;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+}
+
+.cls-1,
+.cls-2,
+.cls-3,
+.cls-4,
+.cls-6 {
+    stroke-width: 53.12px;
+}
+
+.cls-1 {
+    stroke: url(#linear-gradient);
+}
+
+.cls-2 {
+    stroke: url(#linear-gradient-2);
+}
+
+.cls-3 {
+    stroke: url(#linear-gradient-3);
+}
+
+.cls-4 {
+    stroke: url(#linear-gradient-4);
+}
+
+.cls-5 {
+    stroke-width: 53.12px;
+    stroke: url(#linear-gradient-5);
+}
+
+.cls-6 {
+    stroke: url(#linear-gradient-6);
+}
+
+.container {
+    width: 800px;
+    height: 180px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.clock {
+    width: 100%;
+    height: 100%;
+    background: rgba(235, 0, 255, 0.11);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(40px);
+}
+
+.container::before {
+    content: '';
+    width: 180px;
+    height: 180px;
+    background: #f41b75;
+    border-radius: 5px;
+    position: absolute;
+    left: -50px;
+    top: -50px;
+    z-index: -1;
+}
+
+.container::after {
+    content: '';
+    width: 180px;
+    height: 180px;
+    background: #419aff;
+    border-radius: 50%;
+    position: absolute;
+    right: -30px;
+    bottom: -50px;
+    z-index: -1;
+}
+
+.clock span {
+    font-size: 80px;
+    width: 110px;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+}
+
+.clock span::after {
+    font-size: 16px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#day::after {
+    content: 'DAYS';
+}
+
+#hour::after {
+    content: 'HOURS';
+}
+
+#min::after {
+    content: 'MINUTES';
+}
+
+#sec::after {
+    content: 'SECONDS';
+}
+
+.rocket {
+    width: 200px;
+    position: absolute;
+    right: 10%;
+    bottom: 0;
+    animation: rocket 4s linear infinite;
+}
+
+@keyframes rocket {
+    0% {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    100% {
+        bottom: 105%;
+        opacity: 1;
+    }
+}
