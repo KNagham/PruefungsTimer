@@ -1,0 +1,11 @@
+image: alpine:latest
+
+pages:
+  script:
+    - apk update && apk add git
+    - mkdir .public
+    - cp -r * .public
+    - mv .public public
+  artifacts:
+    paths:
+      - public
